@@ -36,35 +36,37 @@
 
  function checkForPalindrome()
  {
-    //Do palindrome check
+    //Calls for input field 
     let inputField = document.getElementById("palindromeField");
-
+    //Link to results after condition checks are made
     let results = document.getElementById("palindromeResults");
-    
+    //Sets parameters for user input
     let inputValue = inputField.value;
-
+    //Sets parameter for user text input to be counted length
     let stringLength = inputValue.length;
-    
+    //Condition if text input is greater than 0
     if(stringLength > 0)
     {   
-        
+        //Divides string length by 2 after round down.3.5 wound round down to 3 for example
         let iterationCount = Math.floor(stringLength/2);
-
+        //Subtract 1 from string length of the last character entered starting from 0 not 1
         let lastCharacterIndex = inputValue.length -1;
-
+        //True declaration precursor for palidrome boolean check
         let palindromeCheckResult = true;
 
         //Allowed to continue palindrome check
        for(let i = 0; i <iterationCount; i++)
-        {
+        {       //Checks if iteration value [0 to start] is not equal at last character indexed minus i. i increments by 1 each succeeding iteration. Last character indexed decrements by 1 each iteration.
             if (inputValue[i] !== inputValue[lastCharacterIndex - i])
             {
                     console.log("NOT A PALINDROME!");
+                    //Displays every time loop condition is not met via elements link ById
                     results.innerHTML = "NOT A PALINDROME!"
                     palindromeCheckResult = false;
+                    //for if loop stops and passes to next condition 
                     break;
             }
-        }
+        }//Default result if false loop breaks, true result is only boolean alternate.
         if (palindromeCheckResult)
         {
             console.log("This is a palindrome!");
